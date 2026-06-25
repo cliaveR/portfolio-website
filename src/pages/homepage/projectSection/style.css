@@ -43,9 +43,6 @@
 .project-card h3 {
     font-size: var(--base-font-size);
     color: var(--charcoal);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .project-card p {
@@ -53,10 +50,6 @@
     color: var(--gray);
     line-height: 1.5;
     margin: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
 @media (min-width: 750px) {

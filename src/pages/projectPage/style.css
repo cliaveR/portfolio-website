@@ -1,0 +1,203 @@
+.projects-container {
+    width: min(1400px, 92%);
+    margin: 0 auto;
+    padding: 4rem 0;
+}
+
+/* ===================== */
+/* PROJECT CARD */
+/* ===================== */
+
+.project {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 4rem;
+
+    align-items: center;
+
+    min-height: 70vh;
+
+    margin-bottom: 4rem;
+    padding: 3rem;
+
+    background: #1b2635;
+
+    border: 1px solid #2d3b4f;
+
+    transition: transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+
+    animation: fadeUp 0.8s ease;
+}
+
+.project:hover {
+    transform: translateY(-6px);
+
+    border-color: #4b5f7a;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ===================== */
+/* ALTERNATING LAYOUT */
+/* ===================== */
+
+.project-right .project-media {
+    order: 2;
+}
+
+.project-right .project-content {
+    order: 1;
+}
+
+/* ===================== */
+/* MEDIA SECTION */
+/* ===================== */
+
+.project-media {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* TITLE */
+
+.project-media h2 {
+    margin: 0;
+
+    font-size: clamp(2.25rem, 5vw, 4rem);
+
+    color: white;
+
+    letter-spacing: -0.03em;
+
+    transition: color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+/* ONLY LIGHT UP TITLE ON TITLE HOVER */
+
+.project-media h2:hover {
+    color: #7dd3fc;
+
+    text-shadow: 0 0 12px rgba(125, 211, 252, 0.4);
+}
+
+/* ===================== */
+/* IMAGE */
+/* ===================== */
+
+.image-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+            135deg,
+            #273548,
+            #1c2736
+    );
+
+    border: 1px solid #3a4a60;
+
+    color: #cbd5e1;
+
+    transition: transform 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.project:hover .image-placeholder {
+    transform: scale(1.02);
+
+    border-color: #5c7393;
+}
+
+/* ===================== */
+/* CONTENT */
+/* ===================== */
+
+.project-content {
+    display: flex;
+    align-items: center;
+}
+
+.project-content p {
+    margin: 0;
+
+    font-size: 1.1rem;
+
+    line-height: 1.9;
+
+    color: #b5c0ce; /* darker than before */
+
+    max-width: 65ch;
+}
+
+/* ===================== */
+/* ENTRY ANIMATION */
+/* ===================== */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===================== */
+/* MOBILE */
+/* ===================== */
+
+@media (max-width: 900px) {
+
+    .project {
+        grid-template-columns: 1fr;
+
+        gap: 2rem;
+
+        min-height: auto;
+
+        padding: 2rem;
+    }
+
+    .project-right .project-media,
+    .project-right .project-content {
+        order: initial;
+    }
+
+    .project-media h2 {
+        font-size: 2.25rem;
+    }
+
+    .project-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .projects-container {
+        width: 95%;
+    }
+
+    .project {
+        padding: 1.5rem;
+    }
+
+    .project-media h2 {
+        font-size: 1.8rem;
+    }
+
+    .project-content p {
+        line-height: 1.7;
+    }
+}

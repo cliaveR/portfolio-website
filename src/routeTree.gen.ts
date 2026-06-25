@@ -9,8 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as CurrentWorkRouteImport } from './routes/current-work'
+import { Route as ProjectRouteImport } from './routes/Project'
 import { Route as IndexRouteImport } from './routes/index'
 
+const CurrentWorkRoute = CurrentWorkRouteImport.update({
+  id: '/current-work',
+  path: '/current-work',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectRoute = ProjectRouteImport.update({
+  id: '/Project',
+  path: '/Project',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +31,50 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/Project': typeof ProjectRoute
+  '/current-work': typeof CurrentWorkRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/Project': typeof ProjectRoute
+  '/current-work': typeof CurrentWorkRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/Project': typeof ProjectRoute
+  '/current-work': typeof CurrentWorkRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/Project' | '/current-work'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/Project' | '/current-work'
+  id: '__root__' | '/' | '/Project' | '/current-work'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ProjectRoute: typeof ProjectRoute
+  CurrentWorkRoute: typeof CurrentWorkRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/current-work': {
+      id: '/current-work'
+      path: '/current-work'
+      fullPath: '/current-work'
+      preLoaderRoute: typeof CurrentWorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/Project': {
+      id: '/Project'
+      path: '/Project'
+      fullPath: '/Project'
+      preLoaderRoute: typeof ProjectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +87,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ProjectRoute: ProjectRoute,
+  CurrentWorkRoute: CurrentWorkRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
