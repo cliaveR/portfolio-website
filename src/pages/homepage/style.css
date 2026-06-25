@@ -1,0 +1,76 @@
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+
+:root {
+    --white: #f9faff;
+    --platinum: #e3e4e8;
+    --windsurfing: #32779b;
+    --marina: #5a91c7;
+    --gray: #9a9a9a;
+    --onyx: #3c3d44;
+    --charcoal: #343c47;
+    --corners: 24px 0;
+    --base-font-size: 1rem;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: var(--base-font-size);
+    background-color: var(--platinum);
+}
+
+img {
+    max-width: 100%;
+    border-radius: var(--corners);
+}
+
+h1 {
+    font-size: calc(var(--base-font-size) * 2.9);
+    margin: 0;
+}
+
+h2 {
+    font-size: var(--base-font-size);
+    text-transform: uppercase;
+    color: var(--windsurfing);
+    letter-spacing: 0.25em;
+    margin: 0;
+}
+
+h3 {
+    margin: 0;
+}
+
+h3:hover {
+    color: var(--marina);
+}
+
+p {
+    line-height: 1.5;
+}
+
+a {
+    color: var(--windsurfing);
+}
+
+a:hover {
+    color: var(--marina);
+}
+

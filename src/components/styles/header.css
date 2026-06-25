@@ -1,0 +1,26 @@
+
+.header {
+    background-color: #343c47;
+    padding: 10px 20px;
+    min-height: 2rem;
+    max-height: 3rem;
+    display: flex;
+    /*align-items: flex-end;*/
+    justify-content: flex-end;
+
+}
+
+.header-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2rem;
+    color: #32779b;
+}
+
+
+
